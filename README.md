@@ -1,9 +1,5 @@
 # Shoffr Lite
 
-Premium dark / gold cab-booking UI (mobile-first) with a lightweight **lost item recovery** loop: rider report → driver confirmation → recovery option → polled tracking (no WebSockets).
-
-Reference JPEGs live in `client/public/ui/` (copied from the project folder).
-
 ## Folder structure
 
 ```
@@ -21,28 +17,6 @@ shoffr/
     │   └── seed.js           ← sample users & trips
     └── data/                 ← created at runtime (shoffr.db)
 ```
-
-## Setup
-
-1. **API**
-
-   ```bash
-   cd server
-   npm install
-   npm run seed
-   npm run dev
-   ```
-
-2. **Web**
-
-   ```bash
-   cd client
-   npm install
-   `cp .env.local.example .env.local` (macOS/Linux) or `copy .env.local.example .env.local` (Windows)
-   npm run dev
-   ```
-
-3. Open **http://localhost:3000**. In **Profile**, sign in as **Rider** (seeded `guest@shoffr.demo`) or **Driver** (`driver@shoffr.demo`).
 
 ## API endpoints
 
@@ -87,8 +61,3 @@ shoffr/
 - **Trips** and **driver dashboard** refresh lost-item state on the same interval.
 - **Recovery** simulates delivery: after choosing an option, tracking moves to **delivered** / item **returned** after ~8s (timer on server).
 
-## Tech constraints
-
-- No Redux; React context for auth only.
-- No maps SDK — mock lat/lng and ETA in `mock_data_json`.
-- No WebSockets — HTTP polling only.
